@@ -1,8 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>La lista dei progetti</h1>
-
+    @include('partials.session_message')
+    <h1 class="ps-1 py-3">La lista dei progetti</h1>
+    <div class="text-end">
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo progetto</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -22,6 +25,17 @@
                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
+                        <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-warning">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->slug) }}"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

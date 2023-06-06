@@ -37,7 +37,7 @@
             </div>
             <div class="navbar-nav">
                 <div class="nav-item text-nowrap ms-2">
-                    <a class="nav-link" href="{{ route('logout') }}"
+                    <a class="nav-link pe-4" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -58,7 +58,7 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white{{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
