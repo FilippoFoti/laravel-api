@@ -11,6 +11,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Titolo</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -20,6 +21,13 @@
                 <tr>
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
+                    <td>
+                        @if ($project->type)
+                            <span>Tipo: {{ $project->type->name }}</span>
+                        @else
+                            <span>Nessun tipo</span>
+                        @endif
+                    </td>
                     <td>{{ $project->slug }}</td>
                     <td>
                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
