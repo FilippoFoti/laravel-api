@@ -23,9 +23,9 @@
                     <td>{{ $project->title }}</td>
                     <td>
                         @if ($project->type)
-                            <span>Tipo: {{ $project->type->name }}</span>
+                            <span>{{ $project->type->name }}</span>
                         @else
-                            <span>Nessun tipo</span>
+                            <span>Null</span>
                         @endif
                     </td>
                     <td>{{ $project->slug }}</td>
