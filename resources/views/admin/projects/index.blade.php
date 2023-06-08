@@ -12,6 +12,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Tipo</th>
+                <th scope="col">Tecnologia</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -27,6 +28,16 @@
                         @else
                             <span>Null</span>
                         @endif
+                    </td>
+                    {{-- <td>
+                        {{$project->technology?->name}}
+                    </td> --}}
+                    <td>
+                        @forelse ($project->technologies as $technology)
+                            <span>{{ $technology->name }} {{ $loop->last ? '' : ',' }}</span>
+                        @empty
+                            <span>Null</span>
+                        @endforelse
                     </td>
                     <td>{{ $project->slug }}</td>
                     <td>
