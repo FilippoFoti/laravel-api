@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             @foreach ($projects as $project)
-                <tr>
+                <tr class="align-middle">
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td>
@@ -40,7 +40,7 @@
                         @endforelse
                     </td>
                     <td class="text-wrap">{{ $project->slug }}</td>
-                    <td class="text-nowrap align-middle">
+                    <td class="text-nowrap">
                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
