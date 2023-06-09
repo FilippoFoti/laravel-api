@@ -64,7 +64,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                {{-- <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.projects.index') }}"> --}}
+
+                                <a class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.projects') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.index') }}">
                                     <i class="fa-regular fa-folder-open"></i> Progetti
                                 </a>

@@ -16,7 +16,7 @@ class TechnologySeeder extends Seeder
      */
     public function run()
     {
-        $technologies = ['film', 'serie tv', 'cortometraggio'];
+        $technologies = ['film', 'serie tv', 'cortometraggio', 'podcast'];
 
         foreach ($technologies as $technology_value) {
             $new_technology = new Technology();
