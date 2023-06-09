@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2 class="ps-1 py-3">Tecnologia: {{ $technology->name }}</h2>
+    <h2 class="ps-1 py-3 m-0">Tecnologia: {{ $technology->name }}</h2>
 
     <div class="text-end mb-2">
         <a href="{{ url()->previous() }}" class="btn btn-success">Indietro</a>
     </div>
 
-    <div>
+    <div class="container p-3 border border-2 border-primary rounded">
         @forelse ($technology->projects as $project)
             <span class="fw-bold">
                 <a href="{{ route('admin.projects.show', $project->slug) }}">

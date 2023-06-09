@@ -6,7 +6,7 @@
     <div class="text-end">
         <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo progetto</a>
     </div>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -39,8 +39,8 @@
                             <span>Null</span>
                         @endforelse
                     </td>
-                    <td>{{ $project->slug }}</td>
-                    <td class="d-flex">
+                    <td class="text-wrap">{{ $project->slug }}</td>
+                    <td class="text-nowrap align-middle">
                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
