@@ -40,7 +40,7 @@
                         @endforelse
                     </td>
                     <td>{{ $project->slug }}</td>
-                    <td>
+                    <td class="d-flex">
                         <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
                             <i class="fa-solid fa-eye"></i>
                         </a>
