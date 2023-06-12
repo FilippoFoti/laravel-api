@@ -6,6 +6,19 @@
     <div class="text-end">
         <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Nuovo progetto</a>
     </div>
+
+    <form action="{{ route('admin.projects.index') }}" method="GET" class="my-2">
+        @csrf
+        <label for="type">Tecnologia</label>
+        <select name="type_id" id="type">
+            <option value="">All</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}">{{ $type->name }}</option>
+            @endforeach
+        </select>
+        <button type="submit">Cerca</button>
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -60,4 +73,7 @@
             @endforeach
         </tbody>
     </table>
+    <div>
+        {{ $projects->links() }}
+    </div>
 @endsection

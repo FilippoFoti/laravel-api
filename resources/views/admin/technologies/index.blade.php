@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                         @foreach ($technologies as $technology)
-                            <tr>
+                            <tr class="align-middle">
                                 <th scope="row">{{ $technology->id }}</th>
                                 <td>{{ $technology->name }}</td>
                                 <td>

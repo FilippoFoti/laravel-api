@@ -18,10 +18,18 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::all();
-        return view('admin.projects.index', compact('projects'));
+
+        $data = $request->all();
+        if ($request->has('type_id') && !is_null($data['type_id'])) {
+            $projects = Project::where('type_id', $data['type_id'])->paginate(10);
+        } else {
+            $projects = Project::paginate(10);
+        }
+
+        $types = Type::all();
+        return view('admin.projects.index', compact('projects', 'types'));
     }
 
     /**
