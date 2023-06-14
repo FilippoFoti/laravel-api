@@ -12,7 +12,7 @@ const imagePreview = document.getElementById('image-preview');
 if(imageInput && imagePreview); {
     //      Al cambio del valore dell'input
     imageInput.addEventListener('change', function() {
-        //      Leggo il file inserito
+        //      Prelevo l'image selezionata
         const selectedFile = this.files[0];
         const reader = new FileReader();
         reader.addEventListener('load', function() {

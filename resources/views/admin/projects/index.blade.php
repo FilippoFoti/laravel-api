@@ -16,7 +16,7 @@
                 <option value="{{ $type->id }}">{{ $type->name }}</option>
             @endforeach
         </select>
-        <button type="submit">Cerca</button>
+        <button class="btn btn-primary" type="submit">Cerca</button>
     </form>
 
     <table class="table table-striped">
