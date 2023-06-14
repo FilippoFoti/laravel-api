@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('scripts')
+    @vite(['resources/js/form.js'])
+@endsection
+
 @section('content')
     <h2 class="ps-1 py-3 m-0">Crea un nuovo progetto</h2>
 
