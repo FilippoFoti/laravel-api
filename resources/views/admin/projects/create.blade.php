@@ -61,8 +61,11 @@
                 </div>
                 <div class="col">
                     <div class="mb-3">
-                        <label for="image" class="form-label fw-bold">Inserisci l'immagine</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <label for="image-input" class="form-label fw-bold">Inserisci l'immagine</label>
+                        <input type="file" class="form-control" id="image-input" name="image">
+                    </div>
+                    <div>
+                        <img class="d-none w-50" id="image-preview" src="" alt="Immagine">
                     </div>
                 </div>
                 <div class="col d-flex align-items-end justify-content-end">
