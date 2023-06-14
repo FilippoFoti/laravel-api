@@ -11,6 +11,19 @@
         <div class="text-end">
             <p><span class="fw-bold">slug --> </span>{{ $project->slug }}</p>
         </div>
+
+        <div class="project-image">
+            @if ($project->image)
+                <img width="300"
+                    src="{{ str_contains($project->image, 'https://') ? $project->image : asset('storage/' . $project->image) }}"
+                    alt="{{ $project->title }}">
+            @else
+                <div class="w-25 p-5 bg-secondary text-white">
+                    Nessuna Immagine
+                </div>
+            @endif
+        </div>
+
         <div class="mt-3">
             @if ($project->type)
                 <p><span class="fw-bold">Tipo: </span>{{ $project->type->name }}</p>

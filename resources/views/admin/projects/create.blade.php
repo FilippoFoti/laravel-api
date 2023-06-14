@@ -10,7 +10,7 @@
     @include('partials.errors')
 
     <div class="container p-3 border border-2 border-primary rounded ">
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             <div class="row row-cols-2 flex-wrap">
 
                 @csrf
@@ -58,6 +58,14 @@
                             </div>
                         @endforeach
                     </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="image" class="form-label fw-bold">Inserisci l'immagine</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                </div>
+                <div class="col d-flex align-items-end justify-content-end">
                     <div class="text-end">
                         <button class="btn btn-primary" type="submit">Invia</button>
                     </div>

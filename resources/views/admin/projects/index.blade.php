@@ -76,4 +76,6 @@
     <div>
         {{ $projects->links() }}
     </div>
+
+    {{-- <img src="{{ asset('storage/superman.webp') }}" alt="prova"> --}}
 @endsection

@@ -9,6 +9,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -62,6 +63,14 @@ class ProjectController extends Controller
         // $project = new Project();
         // $project->fill($data);
         // $project->save();
+
+        // Salvatagio dei file
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('project_images', $request->image);
+            $data['image'] = $path;
+        }
+
+        // Salvataggio dei progetti nel database
         $project = Project::create($data);
 
         // salvataggio dei dati nella tabella ponte
@@ -109,6 +118,16 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
+
+        if ($request->hasFile('image')) {
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+
+            $path = Storage::disk('public')->put('project_images', $request->image);
+            $data['image'] = $path;
+        }
+
         $project->update($data);
 
         // aggiornamento del collegamento con le technologie
@@ -130,6 +149,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->technologies()->detach();
+
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
         
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', "{$project->title} è stato cancellato");
