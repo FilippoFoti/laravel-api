@@ -26,7 +26,8 @@ class ProjectController extends Controller
         if ($request->has('type_id') && !is_null($data['type_id'])) {
             $projects = Project::where('type_id', $data['type_id'])->paginate(10);
         } else {
-            $projects = Project::paginate(10);
+            // $projects = Project::paginate(10);
+            $projects = Project::with(['type', 'technologies'])->paginate(9);
         }
 
         $types = Type::all();
